@@ -1,35 +1,28 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import {Navbar, Nav}from "react-bootstrap"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+const Header = ({ siteTitle }) => {
+  let linkStyle = {margin:'20px'};
+  return(
+   <header>
+    <Navbar fixed="top" bg="dark" variant="dark">
+    <Navbar.Brand><Link to=''>{siteTitle}</Link></Navbar.Brand>
+    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav >
+      
+      <Link style ={linkStyle } to="/map" activeStyle={{ color: "#B01E1D" }}> Map </Link>
+      <Link style ={linkStyle } to="/search" activeStyle={{ color: "#B01E1D" }} >Company Search</Link>
+    </Nav>
+  </Navbar.Collapse>
+  </Navbar>
+  <br />      
   </header>
-)
+  
+);
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
